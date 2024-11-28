@@ -11,22 +11,24 @@ if (isset($_POST['logout'])) {
 }
 $servername = "localhost";
 $username = "root";
-$password = "12345";
+$password = "";
 $dbname = "darkbox";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
-$user_id = $_SESSION['user']; 
+$user_id    =   $_SESSION['user'];
+$id         =   $_SESSION['id'];
 
 $sql = "SELECT * FROM files WHERE user_file = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $user_id);
+$stmt->bind_param("i", $id);
 $stmt->execute();
 $result = $stmt->get_result();
 $files = $result->fetch_all(MYSQLI_ASSOC);
 $stmt->close();
+// var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -39,6 +41,10 @@ $stmt->close();
     <link rel="stylesheet" href="../css/style_layout.css?v=1.0">
     <link rel="stylesheet" href="../css/style_home.css?v=1.0">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .btn{border-radius: 4px;border:solid #0075BD;}
+        .descarga{background-color: #0075BD;list-style:none;text-decoration: none;}
+    </style>
 </head>
 <body>
     <section class="layout">
@@ -76,7 +82,7 @@ $stmt->close();
                 <?php
                 if (count($files) > 0) {
                     foreach ($files as $file) {
-                        echo '<li><a href="' . $file['file_address'] . '" target="_blank">' . $file['name_file'] . '</a></li>';
+                        echo '<li><a href="./download.php?id=' . $file['id_file'] . '" target="_blank">' . $file['name_file'] . '</a>  <a class="btn descarga" href="./download.php?id=' . $file['id_file'] . '">Descargar</a></li>';
                     }
                 } else {
                     echo '<li>No tienes archivos cargados.</li>';

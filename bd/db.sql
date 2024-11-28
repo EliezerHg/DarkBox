@@ -8,7 +8,7 @@ create table users(
     last_name varchar(45) not null,
     last_name2 varchar(45) not null,
     email varchar(50) not null unique,
-    passw varchar(50) not null,
+    passw varchar(50) not null
 );
 
 create table files(
