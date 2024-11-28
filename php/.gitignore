@@ -1,2 +1,5 @@
 #gitignore
-#
+#login.php
+#register.php
+#process_login.php
+#register_api.php
