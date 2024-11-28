@@ -1,0 +1,170 @@
+/* Estilo de la sección content_home en la página de inicio */
+.content_home {
+    background-color: #000000e3;  /* Fondo oscuro para el área de contenido */
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: white; /* Letras blancas dentro del contenedor */
+}
+
+/* Estilo para el formulario de subida de archivos (inicialmente oculto) */
+#uploadForm {
+    display: none;
+    background-color: #000000;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    z-index: 1000;
+}
+
+/* Formulario dentro de #uploadForm */
+#uploadForm form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo para las etiquetas de los campos */
+#uploadForm label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Estilo para los campos de entrada y los botones */
+#uploadForm input,
+#uploadForm button,
+#uploadForm select {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    font-size: 16px;
+}
+
+/* Estilo del botón de submit dentro del formulario */
+#uploadForm button {
+    background-color: #000000; /* Color verde para el botón */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#uploadForm button:hover {
+    background-color: #000000; /* Sombra más oscura cuando se pasa el ratón */
+}
+
+/* Botón para cerrar el formulario */
+.cerrar {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Estilo para la lista de archivos cargados */
+#fileList {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    width: 100%;
+}
+
+#fileList li {
+    background-color: #2c2c2c;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilo para los botones de la barra lateral de navegación */
+.btn-nav_left {
+    background-color: rgba(240, 240, 240, 0);
+    border-color: #00000000;
+    color: #ffffff;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Estilos para el contenedor principal (container) */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;  /* Asegura que las letras sean blancas */
+}
+
+/* Estilo para el título principal dentro del contenedor */
+.container h1,
+.container h3 {
+    text-align: center;
+    color: white;  /* Títulos en blanco */
+}
+
+/* Estilo para la barra lateral y la navegación */
+.layout {
+    width: 100%;
+    display: grid;
+    grid:
+      "logo nav" 1fr
+      "nav_left content_home" 10fr
+      / auto 1fr;
+    gap: 0px;
+    background-color: #000000ab;
+}
+
+.logo { grid-area: logo; }
+.nav { grid-area: nav; }
+.nav_left { grid-area: nav_left; background-color: #000000ab; }
+.body { grid-area: content_home; }
+
+#uploadForm {
+    display: none;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    z-index: 1000;
+}
+#uploadForm form {
+    display: flex;
+    flex-direction: column;
+}
+#uploadForm label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+#uploadForm input,
+#uploadForm button,
+#uploadForm select {
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #00000067;
+}
+.cerrar {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 20px;
+    cursor: pointer;}

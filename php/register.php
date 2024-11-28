@@ -7,7 +7,7 @@
         <link rel="icon" type="image/png" href="../images/Darkbox_W.png">
         <title>Registro - DarkBox</title>
         <link rel="stylesheet" href="../css/styles_login-Register.css?v=1.6">
-        <link rel="stylesheet" href="../css/style_layout.css?v=1.0">
+        <link rel="stylesheet" href="../css/style_layout.css?v=1.10">
     </head>
     <body>
         <header>
