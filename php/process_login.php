@@ -18,7 +18,7 @@ $user = $result->fetch_all(MYSQLI_ASSOC);
 if ($result->num_rows > 0) {
     session_start();
     $_SESSION['user']   =   $email;
-    $_SESSION['id']     =   $user[0]['id_user'];
+    $_SESSION['id']     =   $user[0]['id_user']; 
     header("Location: home_page.php");
 } else {
     header("Location: login.php?error=Credenciales incorrectas.");

@@ -85,7 +85,7 @@ $stmt->close();
                         echo '<li><a href="./download.php?id=' . $file['id_file'] . '" target="_blank">' . $file['name_file'] . '</a>  <a class="btn descarga" href="./download.php?id=' . $file['id_file'] . '">Descargar</a></li>';
                     }
                 } else {
-                    echo '<li>No tienes archivos cargados.</li>';
+                    echo '<li>No tienes archivos cargados.</li>'; 
                 }
                 ?>
             </ul>

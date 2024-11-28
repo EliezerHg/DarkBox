@@ -9,13 +9,13 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // var_dump($_SERVER);die();
 
 if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
+    die("Conexión fallida: " . $conn->connect_error); 
 }
 if (isset($_FILES['fileToUpload'])) {
     $file = $_FILES['fileToUpload'];
     $fileName = basename($file['name']);
     $fileTmpName = $file['tmp_name'];
-    $id         =   $_SESSION['id'];
+    $id         =   $_SESSION['id'];  
     // Definir directorio de subida
     $uploadDirectory = $_SERVER["DOCUMENT_ROOT"]."/DarkBox/uploads/";
 
