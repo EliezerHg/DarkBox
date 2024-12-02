@@ -11,7 +11,7 @@ if (isset($_POST['logout'])) {
 }
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "12345";
 $dbname = "darkbox";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -22,7 +22,7 @@ $user_id    =   $_SESSION['user'];
 $id         =   $_SESSION['id'];
 
 $sql = "SELECT * FROM files WHERE user_file = ?";
-$stmt = $conn->prepare($sql);
+$stmt = $conn->prepare($sql); 
 $stmt->bind_param("i", $id);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -40,10 +40,11 @@ $stmt->close();
     <link rel="stylesheet" href="../css/styles_login-Register.css?v=1.10">
     <link rel="stylesheet" href="../css/style_layout.css?v=1.0">
     <link rel="stylesheet" href="../css/style_home.css?v=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
-        .btn{border-radius: 4px;border:solid #0075BD;}
-        .descarga{background-color: #0075BD;list-style:none;text-decoration: none;}
+        .btn{border-radius: 4px;border:solid white;}
+        .descarga{background-color: white; color:black; list-style:none;text-decoration: none; }
     </style>
 </head>
 <body>
@@ -61,7 +62,6 @@ $stmt->close();
         <div class="nav_left">
             <ul>
                 <li><button class="btn-nav_left" onclick="toggleUploadForm()">Subir Archivo</button></li>
-                <li><button class="btn-nav_left" onclick="getFiles()">Archivos</button></li>
                 <li><button class="btn-nav_left" onclick="window.location.href='./logout.php'">Salir</button></li>
             </ul>
         </div>
@@ -77,12 +77,14 @@ $stmt->close();
                     <button type="submit" name="submit">Subir Archivo</button>
                 </form>
             </div>
+            
             <h3>Archivos Cargados:</h3>
             <ul id="fileList">
                 <?php
                 if (count($files) > 0) {
                     foreach ($files as $file) {
-                        echo '<li><a href="./download.php?id=' . $file['id_file'] . '" target="_blank">' . $file['name_file'] . '</a>  <a class="btn descarga" href="./download.php?id=' . $file['id_file'] . '">Descargar</a></li>';
+                        echo '<li ><a style="color: #ffffff;" href="./download.php?id=' . $file['id_file'] . '" target="_blank">' . $file['name_file'] . '</a>  <a class="btn descarga" href="./download.php?id=' . $file['id_file'] . '" >Descargar</a>
+                                <a class="btn_delete" href="./delete_file.php?id=' . $file['id_file'] . '" >Eliminar</a></li>';
                     }
                 } else {
                     echo '<li>No tienes archivos cargados.</li>'; 
@@ -122,6 +124,7 @@ $stmt->close();
                 });
         }
         document.addEventListener('DOMContentLoaded', getFiles);
+
     </script>
 </body>
 </html>

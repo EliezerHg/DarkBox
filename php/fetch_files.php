@@ -2,7 +2,7 @@
 session_start();
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "12345";
 $dbname = "darkbox";
 
 $conn = new mysqli($servername, $username, $password, $dbname);

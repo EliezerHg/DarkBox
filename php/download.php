@@ -2,7 +2,7 @@
 session_start();
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "12345";
 $dbname = "darkbox";
 $conn = new mysqli($servername, $username, $password, $dbname);
 $sql = "SELECT * FROM files WHERE id_file = ?";
@@ -16,8 +16,6 @@ $result = $stmt->get_result();
 $files = $result->fetch_all(MYSQLI_ASSOC);
 
   
-
-
  $file_url       =   $files[0]['file_address'];
 header('Content-Type: application/octet-stream');
 header("Content-Transfer-Encoding: Binary"); 

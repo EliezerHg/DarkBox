@@ -7,6 +7,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: white; /* Letras blancas dentro del contenedor */
 }
 
@@ -168,3 +169,5 @@
     right: 5px;
     font-size: 20px;
     cursor: pointer;}
+
+.content_home .h2 .p{font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}

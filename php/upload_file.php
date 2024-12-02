@@ -2,7 +2,7 @@
 session_start();
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "12345";
 $dbname = "darkbox";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -27,7 +27,12 @@ if (isset($_FILES['fileToUpload'])) {
         $stmt->bind_param("ssi", $fileName, $fileDestination, $id);
 
         if ($stmt->execute()) {
-            echo "Archivo subido y guardado en la base de datos.";
+            echo "
+            <script>
+                alert('Archivo subido correctamente');
+                window.location.href = 'home_page.php';
+                </script>
+                ";
         } else {
             echo "Error al guardar en la base de datos: " . $stmt->error;
         }
